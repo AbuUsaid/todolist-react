@@ -17,6 +17,19 @@ const page = () => {
 
   let renderTask = <h2>No Task Available</h2>;
 
+  if (mainTask.length > 0) {
+    renderTask = mainTask.map((t, i) => {
+      return (
+        <li>
+          <div className="flex justify-between mb-5">
+            <h5 className="text-2xl font-semibold">{t.title}</h5>
+            <h6 className="text-xl font-semibold">{t.desc}</h6>
+          </div>
+        </li>
+      );
+    });
+  }
+
   return (
     <>
       <h1 className="bg-black text-white p-5 text-5xl font-bold text-center">

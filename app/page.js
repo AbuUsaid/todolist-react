@@ -5,13 +5,18 @@ const page = () => {
   const [title, settitle] = useState('');
   const [desc, setdesc] = useState('');
 
+  const [mainTask, setMainTask] = useState([]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(title);
-    console.log(desc);
+    setMainTask([...mainTask, { title, desc }]);
     settitle('');
     setdesc('');
+    console.log(mainTask);
   };
+
+  let renderTask = <h2>No Task Available</h2>;
+
   return (
     <>
       <h1 className="bg-black text-white p-5 text-5xl font-bold text-center">
@@ -40,6 +45,10 @@ const page = () => {
           Add Task
         </button>
       </form>
+      <hr />
+      <div className="p-8 bg-slate-200">
+        <ul>{renderTask}</ul>
+      </div>
     </>
   );
 };

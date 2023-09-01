@@ -1,6 +1,9 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 
 const page = () => {
+  const [title, settitle] = useState('');
+  const [desc, setdesc] = useState('');
   return (
     <>
       <h1 className="bg-black text-white p-5 text-5xl font-bold text-center">
